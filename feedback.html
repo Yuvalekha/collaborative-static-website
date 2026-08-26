@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Green Living Store - Feedback</title>
 </head>
 
@@ -20,6 +22,7 @@
         </nav>
     </header>
 
+
     <main>
 
         <section>
@@ -32,14 +35,16 @@
             </p>
         </section>
 
+
         <section>
+
             <h2>Customer Feedback Form</h2>
 
-            <form id="feedbackForm">
+            <form onsubmit="submitFeedback(event)">
 
-                <!-- Customer Name -->
                 <div>
                     <label for="name">Full Name:</label>
+
                     <input
                         type="text"
                         id="name"
@@ -51,9 +56,10 @@
 
                 <br>
 
-                <!-- Email -->
+
                 <div>
                     <label for="email">Email Address:</label>
+
                     <input
                         type="email"
                         id="email"
@@ -65,13 +71,17 @@
 
                 <br>
 
-                <!-- Rating -->
+
                 <div>
                     <label for="rating">
                         How would you rate your experience?
                     </label>
 
-                    <select id="rating" name="rating" required>
+                    <select
+                        id="rating"
+                        name="rating"
+                        required
+                    >
                         <option value="">Select a rating</option>
                         <option value="5">5 - Excellent</option>
                         <option value="4">4 - Very Good</option>
@@ -83,7 +93,7 @@
 
                 <br>
 
-                <!-- What customer liked -->
+
                 <div>
                     <label for="liked">
                         What did you like about our store?
@@ -102,7 +112,7 @@
 
                 <br>
 
-                <!-- Improvements -->
+
                 <div>
                     <label for="improve">
                         What can we improve?
@@ -121,8 +131,9 @@
 
                 <br>
 
-                <!-- Recommendation -->
+
                 <fieldset>
+
                     <legend>
                         Would you recommend Green Living Store?
                     </legend>
@@ -145,11 +156,12 @@
                         >
                         No
                     </label>
+
                 </fieldset>
 
                 <br>
 
-                <!-- Additional Comments -->
+
                 <div>
                     <label for="comments">
                         Additional Comments:
@@ -168,7 +180,7 @@
 
                 <br>
 
-                <!-- Buttons -->
+
                 <button type="submit">
                     Submit Feedback
                 </button>
@@ -179,47 +191,72 @@
 
             </form>
 
+
             <!-- Success Message -->
-            <div id="successMessage" style="display: none;">
-                <h3>Thank You!</h3>
+
+            <div
+                id="successMessage"
+                style="
+                    display: none;
+                    margin-top: 20px;
+                    padding: 20px;
+                    border: 2px solid green;
+                "
+            >
+
+                <h2>Thank You!</h2>
 
                 <p>
-                    Your feedback has been submitted successfully.
-                    We appreciate your time and support for Green Living Store.
+                    Your feedback has been submitted successfully!
                 </p>
+
+                <p>
+                    We appreciate your feedback and support
+                    for Green Living Store.
+                </p>
+
             </div>
 
         </section>
 
     </main>
 
+
     <footer>
-        <p>&copy; 2026 Green Living Store. All rights reserved.</p>
-        <p>Making sustainable living simple and accessible.</p>
+
+        <p>
+            &copy; 2026 Green Living Store.
+            All rights reserved.
+        </p>
+
+        <p>
+            Making sustainable living simple and accessible.
+        </p>
+
     </footer>
 
+
     <script>
-        document
-            .getElementById("feedbackForm")
-            .addEventListener("submit", function(event) {
 
-                // Prevent the browser from sending a POST request
-                event.preventDefault();
+        function submitFeedback(event) {
 
-                // Show success message
-                document.getElementById("successMessage").style.display = "block";
+            // Stop the form from sending a POST request
+            event.preventDefault();
 
-                // Clear the form
-                this.reset();
+            // Display success message
+            document.getElementById("successMessage").style.display = "block";
 
-                // Scroll to the success message
-                document
-                    .getElementById("successMessage")
-                    .scrollIntoView({
-                        behavior: "smooth"
-                    });
+            // Clear the form
+            event.target.reset();
+
+            // Scroll to success message
+            document.getElementById("successMessage").scrollIntoView({
+                behavior: "smooth"
             });
+        }
+
     </script>
 
 </body>
+
 </html>
