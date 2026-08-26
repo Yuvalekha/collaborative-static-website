@@ -33,11 +33,11 @@
         </section>
 
         <section>
-
             <h2>Customer Feedback Form</h2>
 
-            <form action="#" method="post">
+            <form id="feedbackForm">
 
+                <!-- Customer Name -->
                 <div>
                     <label for="name">Full Name:</label>
                     <input
@@ -51,6 +51,7 @@
 
                 <br>
 
+                <!-- Email -->
                 <div>
                     <label for="email">Email Address:</label>
                     <input
@@ -64,8 +65,11 @@
 
                 <br>
 
+                <!-- Rating -->
                 <div>
-                    <label for="rating">How would you rate your experience?</label>
+                    <label for="rating">
+                        How would you rate your experience?
+                    </label>
 
                     <select id="rating" name="rating" required>
                         <option value="">Select a rating</option>
@@ -79,12 +83,18 @@
 
                 <br>
 
+                <!-- What customer liked -->
                 <div>
-                    <label for="liked">What did you like about our store?</label>
+                    <label for="liked">
+                        What did you like about our store?
+                    </label>
+
+                    <br>
+
                     <textarea
                         id="liked"
                         name="liked"
-                        rows="4"
+                        rows="5"
                         cols="50"
                         placeholder="Tell us what you liked..."
                     ></textarea>
@@ -92,12 +102,18 @@
 
                 <br>
 
+                <!-- Improvements -->
                 <div>
-                    <label for="improve">What can we improve?</label>
+                    <label for="improve">
+                        What can we improve?
+                    </label>
+
+                    <br>
+
                     <textarea
                         id="improve"
                         name="improve"
-                        rows="4"
+                        rows="5"
                         cols="50"
                         placeholder="Tell us how we can improve..."
                     ></textarea>
@@ -105,8 +121,11 @@
 
                 <br>
 
+                <!-- Recommendation -->
                 <fieldset>
-                    <legend>Would you recommend Green Living Store?</legend>
+                    <legend>
+                        Would you recommend Green Living Store?
+                    </legend>
 
                     <label>
                         <input
@@ -130,8 +149,14 @@
 
                 <br>
 
+                <!-- Additional Comments -->
                 <div>
-                    <label for="comments">Additional Comments:</label>
+                    <label for="comments">
+                        Additional Comments:
+                    </label>
+
+                    <br>
+
                     <textarea
                         id="comments"
                         name="comments"
@@ -143,11 +168,26 @@
 
                 <br>
 
-                <button type="submit">Submit Feedback</button>
+                <!-- Buttons -->
+                <button type="submit">
+                    Submit Feedback
+                </button>
 
-                <button type="reset">Clear Form</button>
+                <button type="reset">
+                    Clear Form
+                </button>
 
             </form>
+
+            <!-- Success Message -->
+            <div id="successMessage" style="display: none;">
+                <h3>Thank You!</h3>
+
+                <p>
+                    Your feedback has been submitted successfully.
+                    We appreciate your time and support for Green Living Store.
+                </p>
+            </div>
 
         </section>
 
@@ -157,6 +197,29 @@
         <p>&copy; 2026 Green Living Store. All rights reserved.</p>
         <p>Making sustainable living simple and accessible.</p>
     </footer>
+
+    <script>
+        document
+            .getElementById("feedbackForm")
+            .addEventListener("submit", function(event) {
+
+                // Prevent the browser from sending a POST request
+                event.preventDefault();
+
+                // Show success message
+                document.getElementById("successMessage").style.display = "block";
+
+                // Clear the form
+                this.reset();
+
+                // Scroll to the success message
+                document
+                    .getElementById("successMessage")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+            });
+    </script>
 
 </body>
 </html>
